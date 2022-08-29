@@ -1,4 +1,4 @@
-package com.atguigu.oss;
+package com.gzuniversity.oss;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 
-@ComponentScan(basePackages = {"com.atguigu"})
+@ComponentScan(basePackages = {"com.gzuniversity"})
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class OssApplication {
 

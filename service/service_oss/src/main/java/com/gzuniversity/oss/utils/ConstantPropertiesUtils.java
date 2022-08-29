@@ -1,4 +1,4 @@
-package com.atguigu.oss.utils;
+package com.gzuniversity.oss.utils;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;

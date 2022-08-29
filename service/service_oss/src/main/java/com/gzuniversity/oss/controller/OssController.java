@@ -1,7 +1,7 @@
-package com.atguigu.oss.controller;
+package com.gzuniversity.oss.controller;
 
-import com.atguigu.commonutils.R;
-import com.atguigu.oss.service.OssService;
+import com.gzuniversity.oss.service.OssService;
+import com.gzuniversity.commonutils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;

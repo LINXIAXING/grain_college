@@ -1,6 +1,7 @@
 package com.gzuniversity.eduservice.controller.front;
 
 
+import com.gzuniversity.commonutils.CourseWebVoOrder;
 import com.gzuniversity.commonutils.R;
 import com.gzuniversity.eduservice.entity.EduCourse;
 import com.gzuniversity.eduservice.entity.vo.chater.ChapterVo;
@@ -9,6 +10,7 @@ import com.gzuniversity.eduservice.entity.frontvo.CourseFrontVo;
 import com.gzuniversity.eduservice.service.EduChapterService;
 import com.gzuniversity.eduservice.service.EduCourseService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +35,7 @@ public class CourseFrontController {
         Page<EduCourse> pageCourse = new Page<>(page,limit);
 
         Map<String,Object> map = CourseService.getCourseFrontList(pageCourse,courseFrontVo);
-        return R.ok().data(map);
+        return R.ok().data("map", map);
     }
     //课程详情
     @GetMapping("getFrontCourseInfo/{courseId}")
@@ -49,5 +51,13 @@ public class CourseFrontController {
 //        boolean buyCourse = orderClient.isBuyCourse(courseId, memberId);
         return R.ok().data("courseWebVo",courseWebVo).data("chapterVideoList",chapterVideoList);
 //        .data("isBuy",buyCourse)
+    }
+
+    @PostMapping("getCourseInfoOrder/{id}")
+    public CourseWebVoOrder getCourseInfoOrder(@PathVariable String id){
+        CourseWebVo courseWebVo = CourseService.getBaseCourseInfo(id);
+        CourseWebVoOrder courseWebVoOrder = new CourseWebVoOrder();
+        BeanUtils.copyProperties(courseWebVo, courseWebVoOrder);
+        return courseWebVoOrder;
     }
 }

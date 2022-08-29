@@ -1,4 +1,4 @@
-package com.atguigu.oss.service;
+package com.gzuniversity.oss.service;
 
 import org.springframework.web.multipart.MultipartFile;
 
